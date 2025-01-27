@@ -1,13 +1,15 @@
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
 
 function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <Button >
-        Click me
-      </Button>
+      Click{" "}
+      <Link href="/documents/123">
+        <span className="text-blue-500 underline ">&nbsp;here&nbsp;</span>
+      </Link>{" "}
+      to go to document ID
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

@@ -1,3 +1,4 @@
+import { Editor } from "./editor"
 interface DocumentIdPage {
     params: Promise<{ documentId: string}>
 }
@@ -8,6 +9,7 @@ const documentIdPage = async ({params}: DocumentIdPage) => {
     return ( 
         <div>
             Document ID: {documentId}
+            <Editor />
         </div>
      );
 }
