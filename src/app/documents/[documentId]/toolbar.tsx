@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/use-editor-store";
+import { Separator } from "@radix-ui/react-context-menu";
 import { BoldIcon, LucideIcon, PrinterIcon, Redo2Icon, SpellCheckIcon, Undo2Icon } from "lucide-react";
 
 interface ToolbarButtonProps {
@@ -61,14 +62,14 @@ export const Toolbar = () => {
                     const current = editor?.view.dom.getAttribute("spellcheck");
                     editor?.view.dom.setAttribute("spellcheck", current === "false" ? "true" : "false");
                 }
-            }
-        ]
+            },
+        ],
         [
             {
                 label: "Bold",
                 icon: BoldIcon,
                 onClick: () =>  editor?.chain().focus().toggleBold().run()
-            }
+            },
         ]
     ]
    
@@ -77,6 +78,7 @@ export const Toolbar = () => {
             {sections[0].map((item) => (
                 <ToolbarButton key={item.label} {...item} />
             ))}
+            <Separator orientation="vertical" className="h-6 bg-neutral-300" />
         </div>
     )   
 }
