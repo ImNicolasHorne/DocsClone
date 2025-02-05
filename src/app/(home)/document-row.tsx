@@ -6,7 +6,7 @@ import { Doc } from "../../../convex/_generated/dataModel";
 import { Building2Icon, CircleUserIcon, } from "lucide-react"
 import { DocumentMenu } from "./document-menu";
 import { useRouter } from "next/navigation";
-import { Router } from "next/router";
+
 
 
 interface DocumentRowProps {
@@ -14,17 +14,14 @@ interface DocumentRowProps {
 }
 
 export const DocumentRow = ({ document }: DocumentRowProps) => {
-    const router = useRouter;
+    const router = useRouter();
     const onNewTabClick = (id: string) => {
         window.open(`/documents/${id}`, "_blank");
     }
 
-    const onRowClick = (id: string) => {
-       router.push(`/documents/${id}`)
-    }
-
     return(
         <TableRow
+            onClick={() => router.push(`/documents/${document._id}`)}
             className="cursor-pointer"
         >
             <TableCell className="w-[50px]">
